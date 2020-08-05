@@ -1,0 +1,21 @@
+.yang {
+    color: hotpink;
+    font-weight: bold;
+}
+div:not(.div1) span {
+    color: beige;
+}
+div.w2 span {
+    color : red;
+}
+p em {
+    background-color: beige;
+    font: bolder;
+}
+div.tongbao li + li {
+    color: red;
+}
+
+a[href] img:only-child {
+    border: 2px solid black;
+}

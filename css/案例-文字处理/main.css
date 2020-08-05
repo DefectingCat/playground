@@ -1,0 +1,20 @@
+.head {
+    text-align: center;
+    color: aquamarine;
+    font-family: 'Microsoft Yahei Light';
+}
+.p1 {
+    text-indent: 2rem;
+}
+.sp1 {
+    font-size: 2rem;
+    color: red;
+}
+li:hover {
+    font-size: 3rem;
+}
+.dv1 {
+    border: 1px solid aqua;
+    border-radius: 1rem;
+    display: inline;
+}

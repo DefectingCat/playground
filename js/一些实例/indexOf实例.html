@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+        }
+
+        .hed {
+            text-align: center;
+        }
+
+        .out {
+            width: 35%;
+            border: 1px solid rgb(189, 189, 189);
+            margin: auto;
+            border-radius: 0.8rem;
+        }
+
+        .wen {
+            line-height: 3rem;
+            border-radius: 0.8rem;
+            border: 0px;
+            width: 84%;
+            float: left;
+            padding-left: 1%;
+            font-size: 1.5rem;
+        }
+
+        .bu {
+            line-height: 3rem;
+            border-radius: 0.8rem;
+            width: 15%;
+            border: 0px;
+        }
+
+        .rs {
+            max-width: 35%;
+            margin: auto;
+            border-radius: 0.8rem;
+        }
+
+        .fen {
+            margin: 2rem 0 2rem 0;
+        }
+
+        .res {
+            font-size: 1.5rem;
+            overflow: auto;
+        }
+
+        .che {
+            width: 35%;
+            border: 1px solid rgb(189, 189, 189);
+            margin: auto;
+            border-radius: 0.8rem;
+        }
+
+        .inc {
+            line-height: 3rem;
+            border-radius: 0.8rem;
+            border: 0px;
+            width: 84%;
+            float: left;
+            padding-left: 1%;
+            font-size: 1.5rem;
+        }
+
+        .check {
+            line-height: 3rem;
+            border-radius: 0.8rem;
+            width: 15%;
+            border: 0px;
+        }
+
+        .cc {
+            width: 35%;
+            margin: auto;
+            border-radius: 0.8rem;
+            max-height: 20rem;
+            overflow: auto;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        .reset {
+            text-align: right;
+            width: 35%;
+            padding-left: 32.6%;
+            padding-top: 2%;
+        }
+
+        .rdb {
+            line-height: 3rem;
+            border-radius: 0.8rem;
+            width: 15%;
+            border: 0px;
+            /* float: right; */
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="hed">输入一段文字，检查指定字符出现次数。</h2>
+    <div class="out">
+        <input type="text" class="wen">
+        <input type="button" value="输入" class="bu">
+    </div>
+    <div class="rs">
+        <hr class="fen">
+        <h2 class="sc">输出：</h2>
+        <p class="res"></p>
+    </div>
+    <div class="che">
+        <input type="text" class="inc">
+        <input type="button" value="检查" class="check">
+    </div>
+    <div class="cc"></div>
+    <div class="reset">
+        <input type="button" value="reset" class="rdb">
+    </div>
+
+</body>
+<script>
+    const inbut = document.querySelector('.bu');
+    const res = document.querySelector('.res')
+    const wen = document.querySelector('.wen');
+    inbut.addEventListener('click', addStr);
+    function addStr() {
+        let str = wen.value;
+        res.textContent = str;
+    }
+    const inc = document.querySelector('.inc');
+    const check = document.querySelector('.check');
+    const cc = document.querySelector('.cc');
+    check.addEventListener('click', findStr);
+    function findStr() {
+        let last = wen.value;
+        let str = inc.value;
+        let count = 0;
+        let pos = last.indexOf(str);
+        if (!str) {
+            cc.innerHTML = "<p>" + '什么都不输入会死机的。' + "</p>";
+        } else {
+            while (pos !== -1) {
+            count++;
+            pos = last.indexOf(str, pos + 1);
+            }
+            if (count > 0) {
+                cc.innerHTML += "<p>" + '"' + str + '"' + '共出现了：' + count + '次。' + "</p>"; // "'"' + str + '"' + '共出现了：' + count + '次。';
+            } else {
+                cc.innerHTML += "<p>" + '"' + str + '"' + '并没有出现过。' + "</p>";
+            }
+        }
+    }
+    const reset = document.querySelector('.rdb');
+    reset.addEventListener('click',rr);
+    function rr() {
+        location.reload(true);
+    }
+</script>
+
+</html>

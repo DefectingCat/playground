@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .name{
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="get">
+        <p>
+        用户名：<input type="text" name="username" class="name" value="test" onfocus="if(this.value == 'test'){this.value = ''};this.style.color = 'black'" onblur="if(this.value == ''){this.value = 'test';this.style.color = 'gray'};">
+        </p>
+        <p>
+            密码：<input type="password" name="password" class="pass">
+        </p>
+        <!-- <ol>
+            <li>小肥羊<input type="radio" name="x" id="" value="xfy"></li>
+            <li>大灰狼<input type="radio" name="x" id="" value="dhl"></li>
+            <li>嘤嘤嘤<input type="radio" name="x" id="" value="yyy"></li>
+        </ol> -->
+        <ul style="list-style: none;">
+            <li><input type="radio" name="y" id="">test</li>
+            <li><input type="radio" name="y" id="">test</li>
+            <li><input type="radio" name="y" id="">test</li>
+        </ul>
+        <ul>
+            <li>复选框<input type="checkbox" name="test" id="" checked="checked"></li>
+            <li>复选框<input type="checkbox" name="test" id=""></li>
+            <li>复选框<input type="checkbox" name="test" id=""></li>
+        </ul>
+        <h1>Chooes one</h1>
+        <select name="chess" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <input type="submit">
+    </form>
+    <form action="" method="get">
+        username: <input type="text" name="" id="">
+        password: <input type="password" name="" id="">
+    </form>
+</body>
+<script>
+    let name = document.querySelector('.name');
+</script>
+</html>

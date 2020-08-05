@@ -1,0 +1,63 @@
+.th {
+    height: 0px;
+    width: 0px;
+    border-left: 100px solid rgb(126, 94, 118);
+    border-top: 100px solid black;
+    float: left;
+}
+.th2 {
+    height: 0px;
+    width: 0px;
+    border-top: 100px solid rgb(126, 94, 118);
+    border-left: 100px solid black;
+    margin-left: 100px;
+}
+
+.th3 {
+    height: 0px;
+    width: 0px;
+    border-left: 100px solid rgb(126, 94, 118);
+    border-top: 100px solid black;
+    margin-top: 10px;
+    transition: all .8s ease-in-out;
+    float: left;
+}
+.th3:hover {
+    height: 100px;
+    width: 100px;
+    border: 0px solid black;
+    transition: all .8s ease-in-out;
+}
+.th4 {
+    height: 0px;
+    width: 0px;
+    border-right: 100px solid rgb(126, 94, 118);
+    border-top: 100px solid black;
+    margin-top: 10px;
+    margin-left: 100px;
+    transition: all .8s ease-in-out;
+}
+.th4:hover {
+    height: 100px;
+    width: 100px;
+    border: 0px solid black;
+    transition: all .8s ease-in-out;
+}
+
+.th7 {
+    height: 0px;
+    width: 0px;
+    border-left: 70px solid black;
+    border-top: 70px solid red;
+    border-right: 70px solid pink;
+    border-bottom: 70px solid gray;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: all .8s ease-in-out;
+}
+.th7:hover {
+    height: 140px;
+    width: 140px;
+    border: 0px solid black;
+    transition: all .8s ease-in-out;
+}

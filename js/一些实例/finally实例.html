@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .out {
+            text-align: center;
+            padding-top: 2rem;
+        }
+        .in {
+            line-height: 2rem;
+            border-radius: 0.5rem;
+            border: 1px solid black;
+            padding-left: 0.5rem;
+        }
+        .but {
+            line-height: 2rem;
+            border-radius: 0.5rem;
+            color: rgb(151, 151, 151);
+            font-weight: bold;
+            border: 1px solid black;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <h1>请输入0-5的数，其余都将报错</h1>
+        <input type="text" class="in"><input type="button" value="点我！" class="but">
+        <p class="tip"></p>
+    </div>
+</body>
+<script>
+    const input = document.querySelector('.in');
+    const but = document.querySelector('.but');
+    const tips = document.querySelector('.tip');
+    but.addEventListener("click",test);
+    function test() {
+        tips.textContent = '';
+        try {
+            let x = Number(input.value);
+            if (!x) throw new Error ("请输入数值");
+            if (x < 0) throw new Error ("值小于0");
+            if (x > 5) throw new Error ("值大于5");
+            if ((typeof x !== "number")) throw new Error ("非数字");
+        }
+        catch (err) {
+            tips.textContent = err;
+        }
+        finally {
+            input.value = '';
+        }
+    }
+</script>
+</html>

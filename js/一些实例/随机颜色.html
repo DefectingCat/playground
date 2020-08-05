@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ran {
+            width: 5rem;
+            height: 5rem;
+            margin: auto;
+            border: 1px solid black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="ran"></div>
+</body>
+<script>
+    const ran = document.querySelector('.ran');
+    ran.addEventListener('click',color);
+    function color() {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        ran.style.background = 'rgb(' + r + ',' + g + ',' + b +')';
+    }
+</script>
+</html>
