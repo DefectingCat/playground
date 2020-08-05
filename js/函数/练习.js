@@ -18,3 +18,5 @@ let Person;
 
 let xfy = new Person();
 xfy.getName();
+xfy.setName('嘤嘤嘤');
+xfy.getName();
