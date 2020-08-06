@@ -1,21 +1,22 @@
 let Person;
 (function () {
-    'use strict'
-    let v = 10;
-    function pv() {
-        v++;
-        console.log(v);
+    'use stric';
+    let name = 'xfy';
+    let feature = function () {
+        console.log('handsome');
     }
+    Person = function () {
 
-    Person = function () {};
-    Person.prototype.say = function () {
-        console.log(v);
     }
-    Person.prototype.cha = function () {
-        pv();
+    Person.prototype.getName = function () {
+        console.log(name);
     }
-
+    Person.prototype.setName = function (value) {
+        name = value;
+    }
 })();
 
 let xfy = new Person();
-xfy.say();
+xfy.getName();
+xfy.setName('嘤嘤嘤');
+xfy.getName();
