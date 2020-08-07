@@ -1,22 +1,23 @@
-let Person;
-(function () {
-    'use stric';
-    let name = 'xfy';
-    let feature = function () {
-        console.log('handsome');
-    }
-    Person = function () {
+let singleton = function () {
 
+    // 定义私有变量和函数
+    let pv = 10;
+    function prif() {
+        return '嘤嘤嘤';
     }
-    Person.prototype.getName = function () {
-        console.log(name);
-    }
-    Person.prototype.setName = function (value) {
-        name = value;
-    }
-})();
 
-let xfy = new Person();
-xfy.getName();
-xfy.setName('嘤嘤嘤');
-xfy.getName();
+    // 创建特例对象
+    let obj = Object.create(someobj); // new SomeType();
+
+    //添加公有属性和方法
+    obj.pubv = function () {
+        return true;
+    }
+    obj.pubf = function () {
+        pv++;
+        return pv;
+    }
+
+    // 返回这个对象
+    return obj;
+}();

@@ -45,3 +45,59 @@ let Person;
 
 let xfy = new Person();
 xfy.say();
+
+let Person;
+(function () {
+    let name;
+    Person = function (value) {
+        name = value;
+    }
+    Person.prototype.get = function () {
+        console.log(name);
+    }
+    Person.prototype.set = function (value) {
+        name = value;
+    }
+})()
+
+let xfy = new Person('xfy');
+xfy.get();
+xfy.set('dfy');
+xfy.get();
+
+// 模块模式 ///////////////////////////////////////
+
+let singleton = function () {
+    let pv = 10;
+    function pf() {
+        return false;
+    }
+    return {
+        pubp: true,
+        prip: function () {
+            pv++;
+            return pv;
+        }
+    };
+}();
+
+console.log(singleton);
+console.log(singleton.prip());
+
+let app = function () {
+    // 私有变量和函数
+    let con = [];
+    // 初始化
+    con.push(new BaseCon());
+    // 公共方法
+    return {
+        getCon: function () {
+            return con;
+        },
+        regCon: function (con) {
+            if (typeof con == 'obejct') {
+                con.push(con)
+            }
+        }
+    };
+}();
