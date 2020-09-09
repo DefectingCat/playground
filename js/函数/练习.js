@@ -1,23 +1,5 @@
-let singleton = function () {
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
-    // 定义私有变量和函数
-    let pv = 10;
-    function prif() {
-        return '嘤嘤嘤';
-    }
+let [a, b, c, d] = arr;
 
-    // 创建特例对象
-    let obj = Object.create(someobj); // new SomeType();
-
-    //添加公有属性和方法
-    obj.pubv = function () {
-        return true;
-    }
-    obj.pubf = function () {
-        pv++;
-        return pv;
-    }
-
-    // 返回这个对象
-    return obj;
-}();
+console.log(a, b, c, d);

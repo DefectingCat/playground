@@ -1,5 +1,5 @@
 // 三个月后的Fibonacci
-function fibo(num) {
+function fibonacci(num) {
     let count = 0;
     let result = [1, 1];
     if (num <= 1) {
