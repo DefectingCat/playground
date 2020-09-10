@@ -1,5 +1,19 @@
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+// 匿名类
+let Person = class {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
 
-let [a, b, c, d] = arr;
+console.log(Person.name);   // Person
 
-console.log(a, b, c, d);
+// 具名类
+let Person = class Persona {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+console.log(Person.name);   // Persona
