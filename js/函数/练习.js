@@ -1,19 +1,17 @@
-// 匿名类
-let Person = class {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
+function Rectangle(h, w) {
+    this.h = h;
+    this.w = w;
 }
 
-console.log(Person.name);   // Person
-
-// 具名类
-let Person = class Persona {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
+Rectangle.prototype.calcArea = function() {
+    return this.h * this.w;
 }
 
-console.log(Person.name);   // Persona
+Object.defineProperty(Rectangle.prototype, 'area', {
+    get: function() {
+        return this.calcArea();
+    }
+})
+
+let square = new Rectangle(23, 32);
+console.log(square.area);
