@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="todo in items">
+                {{ todo.key }}
+            </li>
+        </ol>
+    </div>
+    <script>
+        let app = {
+            data() {
+                return {
+                    items: [
+                        { key: '啦啦啦' },
+                        { key: 'test2' },
+                        { key: 'bulabula' }
+                    ]
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app');
+    </script>
+</body>
+
+</html>

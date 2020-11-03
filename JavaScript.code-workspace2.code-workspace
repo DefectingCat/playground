@@ -11,6 +11,12 @@
 		},
 		{
 			"path": "实例"
+		},
+		{
+			"path": "vue"
+		},
+		{
+			"path": "node"
 		}
 	],
 	"settings": {}

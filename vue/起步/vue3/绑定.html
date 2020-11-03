@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="test" @click="disImg" id="button"><br>
+        <img :src="src" :alt="alt" id="img">
+    </div>
+</body>
+    <script>
+        let app = {
+            data() {
+                return {
+                    src: 'https://cdn.defectink.com/images/file_4963947.png'
+                }
+            },
+            methods: {
+                disImg() {
+                    if (this.src) {
+                        this.src = '';
+                    } else {
+                        this.src = 'https://cdn.defectink.com/images/file_4963947.png';
+                    }
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app');
+    </script>
+</html>

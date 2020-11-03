@@ -1,0 +1,26 @@
+summary {
+    user-select: none;
+    outline: none;
+}
+::-webkit-details-marker {
+    display: none;
+}
+::-moz-list-bullet {
+    font-size: 0;
+    float: left;
+}
+
+.head2 {
+    text-align: center;
+}
+.cent {
+    text-align: center;
+    display: none;
+}
+
+ul, li {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style: none;
+}

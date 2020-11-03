@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div class="app">
+        <p>
+            {{ message }}
+        </p>
+        <input type="button" v-on:click="reverse" value="反转！">
+    </div>
+
+    <div class="app2">
+        <input type="text" v-model="mes">
+        <p>
+            {{ mes }}
+        </p>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '.app',
+            data: {
+                message: 'Hello World, xfy!'
+            },
+            methods: {
+                reverse: function () {
+                    this.message = this.message.split('').reverse().join('');
+                }
+            }
+        });
+
+        let app2 = new Vue({
+            el: '.app2',
+            data: {
+                mes: 'intput something'
+            }
+        })
+    </script>
+</body>
+</html>

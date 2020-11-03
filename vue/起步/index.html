@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>这是标题：{{meg}}</h1>
+        <ul>
+            <li v-for="item in products">
+                名称：{{item.name}} 
+                <button @click="changeStock(item, item.stock - 1)">-</button>
+                <span v-if="item.stock">{{item.stock}}</span>
+                <span v-else>out of stock</span>
+                <button @click="changeStock(item, item.stock + 1)">+</button>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            meg: '库存',
+            products: [
+                { name: 'dami', stock: 3 },
+                { name: 'shuiguo', stock: 55 },
+                { name: 'haiwei', stock: 66 },
+            ]
+        },
+        methods: {
+            changeStock(product, newStock) {
+                if (newStock < 0) {
+                    newStock = 0;
+                }
+                product.stock = newStock;
+            }
+        }
+    })
+</script>
+
+</html>
