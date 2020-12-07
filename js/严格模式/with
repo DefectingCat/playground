@@ -1,0 +1,16 @@
+let obj = {
+    name: 'xfy'
+}
+
+window.name = 'test';
+
+function test() {
+    let name = 'scope_test';
+    let age = 123;
+    with(obj) {
+        console.log(name);
+        console.log(age);
+    }
+}
+
+test();

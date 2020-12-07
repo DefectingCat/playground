@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单行文本溢出</title>
+    <style>
+        p {
+            width: 300px;
+            /* height: 40px;
+            line-height: 20px;
+            border: 1px solid black; */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        margin合并的问题也可以使用bfc解决，但是需要在html中添加一个没有语义的父元素来设置为bfc盒子。当然最好的办法就是不解决，margin合并的问题不会带来什么严重的影响。
+    </p>
+</body>
+</html>

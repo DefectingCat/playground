@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+    <style>
+        .wrapper {
+            background-color: skyblue;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-left: 10%;
+            margin-top: 10%;
+            /* overflow: hidden;
+            display: inline-block;
+            float: left;
+            position: absolute; */
+        }
+
+        .content {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            background-color: hotpink;
+            margin-left: 50%;
+            margin-top: 50%;
+            /* 子元素的margin-top比父元素小，不会生效。当比父元素大时，带着父元素一起移动 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content"></div>
+    </div>
+</body>
+
+</html>

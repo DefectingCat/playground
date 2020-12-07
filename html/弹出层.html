@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹出悬浮窗</title>
+    <style>
+        /* 关键帧动画 */
+        @keyframes popout {
+            0% {
+                top: 20%;
+            }
+
+            100% {
+                top: 50%;
+            }
+        }
+        @keyframes putin {
+            0% {
+                top: 50%;
+            }
+
+            100% {
+                top: 20%;
+            }
+        }
+
+        /* 初始化 */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft Yahei"
+        }
+
+        /* 按钮样式 */
+        .an {
+            height: 50px;
+            width: 150px;
+            border: 0px;
+            border-radius: 8px;
+            background-color: aquamarine;
+            box-shadow: 2px 2px 5px 1px #0000003d;
+            font-weight: bold;
+            font-size: 16px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all .5s ease-in-out;
+        }
+
+        .an:hover {
+            box-shadow: 1px 1px 2px 1px #0000003d;
+            transition: all .5s ease-in-out;
+        }
+
+        /* 外层样式 */
+        .wrapper {
+            height: 500px;
+            width: 500px;
+            border-radius: 10px;
+            background-color: rgb(238, 238, 238);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* animation: .5s ease-in-out popout; */
+            display: none;
+        }
+
+        /* 内容 */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 关闭按钮 */
+        .close {
+            position: absolute;
+            left: 92%;
+            /* top: -48%; */
+            cursor: pointer;
+            user-select: none;
+            width: 40px;
+            height: 40px;
+            /* background-color: azure; */
+            text-align: center;
+            border-radius: 10px;
+            line-height: 40px;
+            transition: all .5s ease-in-out;
+        }
+        .close:hover {
+            background-color: blanchedalmond;
+            transition: all .5s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="an">点击！</button>
+    <div class="wrapper">
+        <div class="close">X</div>
+        <div class="content">这是测试</div>
+    </div>
+    <script>
+        // 弹出
+        const an = document.querySelector('.an');
+        const wrap = document.querySelector('.wrapper');
+        an.addEventListener('click', popOut);
+        function popOut() {
+            wrap.style.display = 'block';
+            wrap.style.animation = '.5s ease-in-out popout';
+        }
+
+        // 关闭
+        const closer = document.querySelector('.close');
+        closer.addEventListener('click', close);
+        function close() {
+            wrap.style.animation = '.5s ease-in-out putin';
+            setTimeout(() => {
+                wrap.style.display = 'none';
+            }, 400)
+            
+        }
+    </script>
+</body>
+
+</html>
