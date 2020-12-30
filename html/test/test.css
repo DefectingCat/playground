@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    height: 100%;
+    background: linear-gradient(-45deg, rgb(221, 76, 185),rgb(226, 91, 204),rgb(106, 174, 238),rgb(91, 228, 209));
+    background-size: 600% 600%;
+    animation: bg 10s ease infinite;
+}
+
+.title {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes bg {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}

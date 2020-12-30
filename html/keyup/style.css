@@ -1,0 +1,16 @@
+.wrapper {
+    position: fixed;
+    height: 200px;
+    width: 200px;
+    background-color: cornflowerblue;
+    transform: translate(-50%, -50%);
+}
+
+.content{
+    height: 150px;
+    width: 450px;
+    border: 1px solid black;
+    border-radius: 8px;
+    word-wrap: break-word;
+    font-size: 12px;
+}
