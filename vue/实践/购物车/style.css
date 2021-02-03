@@ -1,0 +1,16 @@
+.shoper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+table {
+  border-spacing: 0;
+}
+table thead tr {
+  background-color: #f0f0f0;
+}
+td {
+  height: 3rem;
+  padding: 0 1rem 0 1rem;
+}

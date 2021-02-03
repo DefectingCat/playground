@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <com1></com1>
+    </div>
+  </body>
+  <script type="text/x-template" id="com1">
+  <div>
+    <h1>我是高贵的 HeadLine 1</h1>
+    <p>无敌螺旋小肥羊</p>
+  </div>
+  </script>
+  <template id="com2">
+    <div>
+      <h1>我是高贵的 HeadLine 1</h1>
+      <p>无敌螺旋小肥羊</p>
+    </div>
+  </template>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      components: {
+        com1: {
+          template: '#com2',
+        }
+      }
+    });
+  </script>
+</html>

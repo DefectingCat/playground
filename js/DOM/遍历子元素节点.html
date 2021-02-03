@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>test</h1>
+        <p>this is a test</p>
+    </div>
+    <div class="test">
+        <h2>测试</h2>
+        <div>
+            <span>test
+                <b></b>
+            </span>
+            <p>h</p>
+        </div>
+    </div>
+</body>
+<script>
+    let div = document.querySelector('.test');
+    let result = [];
+    function childs(rootNode) {
+        let child = rootNode.children;
+        if (child.length) {
+            for (let i of child) {
+                result.push(i);
+                if (i.children.length) {
+                    childs(i);
+                }
+            }
+        }
+    }
+</script>
+</html>

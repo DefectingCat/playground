@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .btn {
+        height: 2rem;
+        width: 7%;
+      }
+      .btn.active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <btn
+        :categories="categories"
+        @change-id="changeId"
+        :current-tab="currentTab"
+      ></btn>
+      <comment1 v-show="currentTab === 111"></comment1>
+      <comment2 v-show="currentTab === 222"></comment2>
+      <comment3 v-show="currentTab === 333"></comment3>
+    </div>
+  </body>
+
+  <template id="btn">
+    <div>
+      <button
+        v-for="item in categories"
+        class="btn"
+        :key="item.id"
+        @click="$emit('change-id', item.id)"
+        :class="{active: currentTab === item.id}"
+      >
+        {{item.name}}
+      </button>
+    </div>
+  </template>
+
+  <template id="comment1">
+    <div>1</div>
+  </template>
+  <template id="comment2">
+    <div>2</div>
+  </template>
+  <template id="comment3">
+    <div>3</div>
+  </template>
+
+  <script>
+    const btn = {
+      template: '#btn',
+      props: {
+        categories: Array,
+        currentTab: Number,
+      },
+    };
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        currentTab: 111,
+        categories: [
+          { id: 111, name: 'Home' },
+          { id: 222, name: 'Posts' },
+          { id: 333, name: 'Archive' },
+        ],
+      },
+      components: {
+        btn,
+        comment1: {
+          template: '#comment1',
+        },
+        comment2: {
+          template: '#comment2',
+        },
+        comment3: {
+          template: '#comment3',
+        },
+      },
+      methods: {
+        changeId(id) {
+          this.currentTab = id;
+        },
+      },
+    });
+  </script>
+</html>

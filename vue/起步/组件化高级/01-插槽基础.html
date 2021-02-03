@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <com1></com1>
+      <com1>
+        <p>我是代替默认按钮的 <code>p</code>标签</p>
+      </com1>
+      <com1>
+        <p>我是代替默认按钮的 <code>p</code>标签</p>
+        <span>同时还有其他标签传递</span><br>
+        <i>リトルシープ</i>
+      </com1>
+      <com1></com1>
+    </div>
+  </body>
+
+  <template id="com1">
+    <div>
+      <h2>我是有共性的内容</h2>
+      <slot><button>默认按钮</button></slot>
+    </div>
+  </template>
+
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {},
+      components: {
+        com1: {
+          template: '#com1',
+        },
+      },
+    });
+  </script>
+</html>

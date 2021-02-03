@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Now you see me, But i'll be overwritten.</p>
+    <p id="test"></p>
+  </body>
+  <script>
+    let test = document.querySelector('#test');
+    let count = 5;
+    test.innerHTML = `${count} Seconds`;
+    setInterval(() => {
+      count--;
+      test.innerHTML = `${count} Seconds`;
+    }, 1000);
+    // window.onload = () => {
+    //   document.write('Hello world!')
+    // }
+    setTimeout(() => {
+      document.write('Hello world');
+    }, 5000);
+  </script>
+</html>

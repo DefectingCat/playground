@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let fragment = document.createDocumentFragment();
+    let div = document.createElement('div');
+    let span = document.createElement('span');
+    span.innerText = '小肥羊！';
+    div.className = 'example';
+    span.className = 'slogan';
+    div.appendChild(span);
+    fragment.append(div);
+    document.body.append(fragment);
+</script>
+</html>

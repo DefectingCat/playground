@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+    <script>
+        let MyComp = {
+            data() {
+                return {
+                    firstName: "小",
+                    lastName: "肥羊",
+                };
+            },
+            computed: {
+                fullName() {
+                    return this.firstName + this.lastName;
+                },
+            },
+            template: `<div>
+        <p>
+            姓：<input type="text" v-model="firstName">
+        </p>
+        <p>
+            名：<input type="text" v-model="lastName">
+        </p>
+        <h2>
+            姓名：{{fullName}}
+        </h2>
+    </div>`,
+        };
+        let vm = new Vue({
+            el: "#app",
+            components: {
+                MyComp,
+            },
+            template: `<MyComp></MyComp>`,
+        });
+    </script>
+</html>

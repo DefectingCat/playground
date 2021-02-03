@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <com1 v-show="isShow"></com1>
+    </div>
+  </body>
+
+  <template id="com1">
+    <div>
+      <p>下面有个button</p>
+      <button v-show="isShow">按钮</button>
+    </div>
+  </template>
+
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        isShow: true,
+      },
+      components: {
+        com1: {
+          template: '#com1',
+          data() {
+            return {
+              isShow: false,
+            }
+          },
+        },
+      },
+    });
+  </script>
+</html>

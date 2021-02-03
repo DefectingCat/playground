@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <com1
+        :num1="num1"
+        :num2="num2"
+        @change-n1="changeN1"
+        @change-n2="changeN2"
+      ></com1>
+    </div>
+  </body>
+
+  <template id="com1">
+    <div>
+      <p>props: {{num1}}</p>
+      <p>data: {{dataNum1}}</p>
+      <input type="text" v-model="dataNum1" />
+      <hr />
+      <p>props: {{num2}}</p>
+      <p>data: {{dataNum2}}</p>
+      <input type="text" v-model="dataNum2" />
+    </div>
+  </template>
+
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        num1: 0,
+        num2: 0,
+      },
+      methods: {
+        changeN1(newValue, n2) {
+          this.num1 = newValue;
+          this.num2 = n2;
+        },
+        changeN2(newValue, n1) {
+          this.num2 = newValue;
+          this.num1 = n1;
+        },
+      },
+      components: {
+        com1: {
+          template: '#com1',
+          props: {
+            num1: [Number, String],
+            num2: [Number, String],
+          },
+          data() {
+            return {
+              dataNum1: this.num1,
+              dataNum2: this.num2,
+            };
+          },
+          watch: {
+            dataNum1(newValue) {
+              this.dataNum2 = newValue * 2;
+              this.$emit('change-n1', newValue, this.dataNum2);
+            },
+            dataNum2(newValue) {
+              this.dataNum1 = newValue / 2;
+              this.$emit('change-n2', newValue, this.dataNum1);
+            },
+          },
+        },
+      },
+    });
+  </script>
+</html>

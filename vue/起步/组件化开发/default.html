@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+
+  <template id="com1">
+    <div></div>
+  </template>
+
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {},
+      components: {
+        com1: {
+          template: '#com1',
+        },
+      },
+    });
+  </script>
+</html>

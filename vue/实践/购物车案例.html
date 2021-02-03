@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>购物车案例</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      table {
+        border-spacing: 0px;
+      }
+      table tr td {
+        height: 50px;
+        padding: 0 8px 0 8px;
+      }
+      table thead tr td {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div v-if="books.length">
+        <table>
+          <thead>
+            <tr>
+              <td></td>
+              <td>书籍名称</td>
+              <td>出版日期</td>
+              <td>价格</td>
+              <td>购买数量</td>
+              <td>操作</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(book, i) in books" :key="book.id">
+              <td>{{book.id}}</td>
+              <td>{{book.bookName}}</td>
+              <td>{{book.publicData}}</td>
+              <td>{{book.price | showPrice}}</td>
+              <td>
+                <button @click="sub(i)" :disabled="book.num == 1">-</button>
+                {{book.num}}
+                <button @click="add(i)">+</button>
+              </td>
+              <td>
+                <button @click="remove(i)">移除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>总价： {{sum | showPrice}}</p>
+      </div>
+      <div v-else>
+        <p>购物车为空！</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        books: [
+          {
+            id: 1,
+            bookName: '算法导论',
+            publicData: '2006-09',
+            oldPrice: 39.0,
+            price: 39.0,
+            num: 1,
+          },
+          {
+            id: 2,
+            bookName: 'xfy编程艺术',
+            publicData: '2009-01',
+            oldPrice: 999.0,
+            price: 999.0,
+            num: 1,
+          },
+          {
+            id: 3,
+            bookName: 'xfy biograph',
+            publicData: '2016-12',
+            oldPrice: 99.0,
+            price: 99.0,
+            num: 1,
+          },
+          {
+            id: 4,
+            bookName: '代码大全',
+            publicData: '2007-04',
+            oldPrice: 75.0,
+            price: 75.0,
+            num: 1,
+          },
+        ],
+        disbaled: false,
+      },
+      methods: {
+        add(index) {
+          this.books[index].num++;
+          this.books[index].price += this.books[index].oldPrice;
+        },
+        sub(index) {
+          if (this.books[index].num) {
+            this.books[index].num--;
+            this.books[index].price =
+              this.books[index].price - this.books[index].oldPrice;
+          }
+        },
+        remove(index) {
+          this.books.splice(index, 1);
+        },
+      },
+      computed: {
+        sum() {
+          let sum = 0;
+          for (let i of this.books) {
+            sum += i.price;
+          }
+          return sum;
+        },
+      },
+      filters: {
+        showPrice(price) {
+          return `￥${price.toFixed(2)}`;
+        },
+      },
+    });
+  </script>
+</html>

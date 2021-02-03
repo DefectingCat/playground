@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+</head>
+<body>
+    <div id="app">
+        <select name="" id="" v-model="selected">
+            <option value="" disabled>请选择</option>
+            <option :value="i.name" v-for="i in lists">
+                {{i.name}}
+            </option>
+            
+        </select>
+        <p>Selected: 
+            {{selected}}
+        </p>
+    </div>    
+</body>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            lists: [
+                {id: 1, name: 'xfy', age: 18},
+                {id: 2, name: 'dfy', age: 18},
+                {id: 3, name: 'dhl', age: 18},
+            ],
+            selected: '请选择'
+        },
+
+    })
+</script>
+</html>

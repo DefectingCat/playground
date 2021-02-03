@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" :value="val" @click="isShow = !isShow">
+        <img :src="imgUrl" alt="" v-show="isShow">
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            imgUrl: 'http://5b0988e595225.cdn.sohucs.com/images/20191023/33ad80894f3240e3887acc5b80bf729a.jpeg',
+            isShow: true,
+            val: '消失图片'
+        },
+        methods: {
+            showImg() {
+                if (this.isShow) {
+                    this.isShow = false;
+                    this.val = '显示图片';
+                } else {
+                    this.isShow = true;
+                    this.val = '消失图片';
+                }
+            }
+        }
+    })
+</script>
+</html>

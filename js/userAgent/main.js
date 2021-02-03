@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-12-23 21:49:56
- * @LastEditTime: 2020-12-29 21:44:44
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \JavaScript高级程序设计c:\Users\xfy\OneDrive\Defectink\test\js\userAgent\main.js
- */
 let client = function () {
     let engine = {
         // 主流引擎
@@ -24,21 +16,29 @@ let client = function () {
     let khtml = /KHTML\/(\S+)/;
     let khtml1 = /Konqueror\/([^;]+)/;
     let gecko = /rv:([^\)]+)\) Gecko\/\d{8}/;
+    let trident = {
+        wow: /WOW64/,
+        rv: /rv:([^\)]+)/
+    };
     if (window.opera) {
         engine.ver = window.opera.version();
         engine.opera = parseFloat(engine.ver);
     } else if (webkit.test(ua)) {
         engine.ver = ua.match(webkit)[1];
-        engine.webkit = parseFloat(engine.ver);
+        engine.webkit = engine.ver;
     } else if (khtml.test(ua) || khtml1.test(ua)) {
         engine.ver = ua.match(khtml)[1];
-        engine.khtml = parseFloat(engine.ver);
+        engine.khtml = engine.ver;
     } else if (gecko.test(ua)) {
         engine.ver = ua.match(gecko)[1];
-        engine.gecko = parseFloat(engine.ver);
-    }
+        engine.gecko = engine.ver;
+    } else if (trident.wow.test(ua)) {
+        engine.ver = ua.match(trident.rv)[1];
+        engine.trident = engine.ver;
+    } 
 
     return {
         engine: engine
     }
 }();
+

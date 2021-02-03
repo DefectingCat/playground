@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="checkbox" name="test" id="test" v-model="check" />
+            <label for="test"> {{check}} </label>
+            <hr />
+            <input
+                type="checkbox"
+                name="xfy"
+                id="xfy"
+                value="xfy"
+                v-model="checkNames"
+            />
+            <label for="xfy">xfy</label>
+            <input
+                type="checkbox"
+                name="jack"
+                id="jack"
+                value="jack"
+                v-model="checkNames"
+            />
+            <label for="jack">jack</label>
+            <input
+                type="checkbox"
+                name="john"
+                id="john"
+                value="john"
+                v-model="checkNames"
+            />
+            <label for="john">john</label>
+            <p>Who is your choese: {{checkNames}}</p>
+
+            <hr />
+            <input type="radio" name="a" id="a" value="A" v-model="picked" />
+            <label for="a">A</label>
+            <input type="radio" name="b" id="b" value="B" v-model="picked" />
+            <label for="b">B</label>
+            <p>Your choesed： {{picked}}</p>
+
+            <hr />
+            <select name="test" id="test" v-model="selected">
+                <option disabled value="">请选择</option>
+                <option value="这个可以选择">这个可以选择</option>
+                <option value="">我无法选择</option>
+            </select>
+            <p>Selected： {{selected}}</p>
+
+            <hr>
+            <select name="" id="" multiple v-model="test">
+                <option value="" disabled>请选择</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="">C</option>
+            </select>
+            <p>Selected：
+                {{test}}
+            </p>
+        </div>
+    </body>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                check: false,
+                checkNames: [],
+                picked: "",
+                selected: "",
+                test: ''
+            },
+        });
+    </script>
+</html>

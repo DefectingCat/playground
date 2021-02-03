@@ -22,5 +22,8 @@
 			"path": "nginx"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "js",
+		"liveServer.settings.port": 5524
+	}
 }

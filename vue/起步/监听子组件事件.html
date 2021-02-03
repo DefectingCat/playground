@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div
+                class="blog-test-demo"
+                :style="{ fontSize: postFontSize + 'em'}"
+            >
+                <blog-title
+                    v-for="post in lists"
+                    :key="post.id"
+                    :post="post"
+                    @enlarge-text="postFontSize += 0.1"
+                ></blog-title>
+            </div>
+        </div>
+    </body>
+    <script>
+        let blogTitle = {
+            props: ["post"],
+            template: ` <div>               <h3>{{post.title}}</h3>
+                <button @click="$emit('enlarge-text')">Enlagrge Text</button></div>`,
+        };
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                lists: [
+                    { id: 1, title: "test" },
+                    { id: 2, title: "this is a test" },
+                    { id: 3, title: "just a test, nothing happend." },
+                ],
+                postFontSize: 1,
+            },
+            components: {
+                "blog-title": blogTitle,
+            },
+        });
+    </script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="checkbox" name="xfy" id="xfy" value="xfy" @change="chtest"/>
+            <label for="xfy">xfy</label>
+            <input type="checkbox" name="dfy" id="dfy" value="dfy" @change="chtest"/>
+            <label for="dfy">dfy</label>
+
+            <p>
+                Here: {{test}}
+            </p>
+        </div>
+    </body>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                test: [],
+            },
+            methods: {
+                chtest(e) {
+                    if (e.target.checked) { 
+                        this.test.push(e.target.value);
+                    } else {
+                        this.test.pop();
+                    }
+                }
+            },
+        });
+    </script>
+</html>

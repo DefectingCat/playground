@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .wrapper {
+        display: flex;
+        justify-content: center;
+      }
+      .content {
+        display: flex;
+        background-color: #f6f6f6;
+        width: 244px;
+      }
+      .btn {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-around;
+        flex-flow: row wrap;
+      }
+      .btn-item {
+        height: 50px;
+        line-height: 50px;
+        width: 80px;
+        text-align: center;
+        background-color: #fff;
+        cursor: pointer;
+        user-select: none;
+      }
+      .btn-item:hover {
+        background-color: #e0e0e0;
+      }
+      .row-item {
+        width: 2px;
+      }
+      .colum-item {
+        height: 2px;
+        display: inline-block;
+        width: 244px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content">
+        <ul class="btn">
+          <li class="btn-item">7</li>
+          <span class="row-item"></span>
+          <li class="btn-item">8</li>
+          <span class="row-item"></span>
+          <li class="btn-item">9</li>
+          <span class="colum-item"></span>
+          <li class="btn-item">4</li>
+          <span class="row-item"></span>
+          <li class="btn-item">5</li>
+          <span class="row-item"></span>
+          <li class="btn-item">6</li>
+          <span class="colum-item"></span>
+          <li class="btn-item">1</li>
+          <span class="row-item"></span>
+          <li class="btn-item">2</li>
+          <span class="row-item"></span>
+          <li class="btn-item">3</li>
+          <span class="colum-item"></span>
+          <li class="btn-item">+/-</li>
+          <span class="row-item"></span>
+          <li class="btn-item">0</li>
+          <span class="row-item"></span>
+          <li class="btn-item">.</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

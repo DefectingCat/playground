@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <test-xfy @welcome="sayHi" :msg="msg"></test-xfy>
+        </div>
+    </body>
+    <script>
+        let myComp = {
+            data() {
+                return {
+                    name: "",
+                };
+            },
+            props: {
+                msg: Number,
+            },
+            template: `        <div>
+            <input type="text" placeholder="Your name" v-model="name" @keydown.enter="$emit('welcome', name)">
+            <button @click="$emit('welcome', name)">{{msg}}</button>
+        </div>`,
+        };
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                name: "",
+                msg: "Click Me!",
+            },
+            methods: {
+                sayHi(name) {
+                    alert(`Hi, ${name}`);
+                },
+            },
+            components: {
+                "test-xfy": myComp,
+            },
+        });
+    </script>
+</html>

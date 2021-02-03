@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .btn {
+                background-color: #fff;
+                height: 50px;
+                width: 80px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                cursor: pointer;
+                outline: none;
+            }
+            .btn:hover {
+                background-color: #e0e0e0;
+            }
+            .btn.active {
+                background-color: #e0e0e0;
+            }
+            .text {
+                border: 2px solid;
+                width: 400px;
+                height: 200px;
+                position: relative;
+                top: -2px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <button
+                v-for="tab in tabs"
+                :class="['btn', { active: currentTab === tab}]"
+                @click="currentTab = tab"
+            >
+                {{tab}}
+            </button>
+            <component :is='swTab'></component>
+        </div>
+    </body>
+    <script>
+        Vue.component("tab-home", {
+            template: "<div class='text'>Home component</div>",
+        });
+        Vue.component("tab-posts", {
+            template: "<div class='text'>Posts component</div>",
+        });
+        Vue.component("tab-archive", {
+            template: "<div class='text'>Archive component</div>",
+        });
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                currentTab: "Home",
+                tabs: ["Home", "Posts", "Archive"],
+            },
+            computed: {
+                swTab() {
+                    return 'tab-' + this.currentTab.toLowerCase();
+                }
+            },
+        });
+    </script>
+</html>

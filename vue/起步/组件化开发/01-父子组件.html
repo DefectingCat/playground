@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <com1></com1>
+    </div>
+  </body>
+  <script>
+    let com2 = {
+      template: `
+    <div>
+    <h2>子组件，Title 2</h2>
+    <span>0987654321</span>
+  </div>
+    `,
+    };
+    let com1 = {
+      template: `
+    <div>
+    <h1>我是父组件，Title 1</h1>
+    <p>1234567890</p>
+    <com2></com2>
+  </div>
+    `,
+      components: {
+        com2,
+      },
+    };
+    let vm = new Vue({
+      el: '#app',
+      components: {
+        com1,
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小肥羊</title>
+    <link rel="shortcut icon" href="favicon.jpeg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="shoper">
+        <div v-if="books.length">
+          <table>
+            <thead>
+              <tr>
+                <td></td>
+                <td>书籍名称</td>
+                <td>出版日期</td>
+                <td>价格</td>
+                <td>购买数量</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(book, i) in books" :key="book.id">
+                <td>{{book.id}}</td>
+                <td>{{book.bookName}}</td>
+                <td>{{book.publicDate}}</td>
+                <td>{{book.price | normalizePrice}}</td>
+                <td>
+                  <button @click="decrease(i)" :disabled="book.num === 1">
+                    -
+                  </button>
+                  {{book.num}}
+                  <button @click="increase(i)">+</button>
+                </td>
+                <td>
+                  <button @click="remove(i)">移除</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>总价： {{sum | normalizePrice}}</p>
+        </div>
+        <div v-else>
+          <p>清空啦~</p>
+
+          <img src="images.jfif" alt="" srcset="" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>

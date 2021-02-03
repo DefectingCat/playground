@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <com1></com1>
+      <com1>
+        <template #default="slotProp">
+          <p>
+            {{slotProp}}
+          </p>
+          <span v-for="item in slotProp.languages">
+            {{item}}
+          </span>
+        </template>
+      </com1>
+    </div>
+  </body>
+
+  <template id="com1">
+    <div>
+      <slot :languages="programLanguages">
+        <ul>
+          <li v-for="item in programLanguages">
+            {{item}}
+          </li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {},
+      components: {
+        com1: {
+          template: '#com1',
+          data() {
+            return {
+              programLanguages: ['Java','JavaScript','C','C艹','Swift']
+            }
+          },
+        },
+      },
+    });
+  </script>
+</html>

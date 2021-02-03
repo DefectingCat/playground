@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .b1 {
+        width: 100px;
+        height: 50px;
+      }
+      .active {
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <button class="b1" :class="{active: isA}" @click="change">{{msg}}</button>
+    </div>
+  </body>
+  <script>
+    let vm = new Vue({
+      el: "#app",
+      data: {
+        msg: "点我",
+        isA: false,
+        count: 0,
+      },
+      methods: {
+        change() {
+          if (this.count % 2 === 0) {
+            this.isA = true;
+          } else {
+            this.isA = false;
+          }
+          this.count++;
+        },
+      },
+    });
+  </script>
+</html>

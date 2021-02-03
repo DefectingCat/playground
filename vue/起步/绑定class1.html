@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      ul li {
+        list-style: none;
+      }
+      .default {
+        border: 1px solid;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .default:hover {
+        background-color: #f0f0f0;
+      }
+      .default.active {
+        background-color: #e0e0e0;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li
+          v-for="(item, i) in 5"
+          :id="i"
+          :key="i"
+          class="default"
+          :class="{active: currentId == i}"
+          @click="currentId = i"
+        >
+          {{msg}}
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    let vm = new Vue({
+      el: "#app",
+      data: {
+        msg: "Click Me!",
+        currentId: -1,
+        active: false,
+      },
+    });
+  </script>
+</html>

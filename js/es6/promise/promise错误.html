@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      throw new Error('i cant be caught')
+    }, 1000);
+  }).catch((err) => {
+    console.log(err);
+  })
+
+  Promise.all([
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('result 1')
+      }, 2000);
+    }),
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('result 2')
+      }, 1000);
+    })
+  ]).then((data) => {
+    console.log(data);
+  })
+</script>
+</html>

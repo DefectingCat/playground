@@ -10,14 +10,11 @@
 
 <body>
     <div id="app">
-        <h1>这是标题：{{meg}}</h1>
+        <h1>{{ msg }}</h1>
+        <input type="button" value="doIt" @click="saySomething">
         <ul>
             <li v-for="item in products">
-                名称：{{item.name}} 
-                <button @click="changeStock(item, item.stock - 1)">-</button>
-                <span v-if="item.stock">{{item.stock}}</span>
-                <span v-else>out of stock</span>
-                <button @click="changeStock(item, item.stock + 1)">+</button>
+                {{ item.name }}
             </li>
         </ul>
     </div>
@@ -26,19 +23,18 @@
     let vm = new Vue({
         el: '#app',
         data: {
-            meg: '库存',
+            msg: '测试',
             products: [
-                { name: 'dami', stock: 3 },
-                { name: 'shuiguo', stock: 55 },
-                { name: 'haiwei', stock: 66 },
+                { name: 'iphone', stock: 10 },
+                { name: 'xiaomi', stock: 10 },
+                { name: 'huawei', stock: 10 },
+                { name: 'vivo', stock: 10 }
             ]
         },
         methods: {
-            changeStock(product, newStock) {
-                if (newStock < 0) {
-                    newStock = 0;
-                }
-                product.stock = newStock;
+            saySomething() {
+                let msg = prompt('say something?', '嘤嘤嘤');
+                this.msg = msg
             }
         }
     })

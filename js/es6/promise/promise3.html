@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve('done')
+  //   }, 1000);
+  // }).then(
+  //   result => alert(result)
+  // )
+  // function delay(ms) {
+  //   return new Promise((resolve) => {
+  //     setTimeout(resolve, ms);
+  //   })
+  // }
+  // delay(1000).then(() => alert('done'))
+  
+  // async function test(url) {
+  //   let respone = await fetch(url);
+  //   return respone
+  // }
+  let url = 'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
+  // let t = test(url)
+
+  fetch(url)
+  .then((respone) => {
+    console.log(respone.json());
+  })
+</script>
+</html>

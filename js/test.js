@@ -1,81 +1,38 @@
-/*
- * @Author: your name
- * @Date: 2020-11-04 00:00:29
- * @LastEditTime: 2020-12-29 17:51:20
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \JavaScript高级程序设计c:\Users\xfy\OneDrive\Defectink\test\js\test.js
- */
-function Test1(age) {
-    this.age = age;
-    this.sayAge = function () {
-        console.log(this.age);
-    }
+class Animal {
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+
+  run(speed) {
+    this.speed = speed;
+    console.log(`${this.name} runs with speed ${this.speed}`);
+  }
+
+  stop() {
+    this.speed = 0;
+    console.log(`${this.name} stands still.`);
+  }
 }
 
-
-class Test {
-    constructor(age) {
-        this.age = age;
-    }
-    sayAge = () => {
-        debugger;
-        console.log(this.age);
-    }
+class Rabbit extends Animal {
+  hide() {
+    console.log(`${this.name} hide!`);
+  }
 }
 
-let t = new Test(12);
+let firstTime = new Date().getTime();
+setInterval(() => {
+  let lastTime = new Date().getTime();
+  console.log(lastTime - firstTime);
+  firstTime = lastTime;
+}, 1000);
 
-let test = {
-    age: 18,
-    sayAge: function () {
-        console.log(this.age);
-    }
-}
+let t = 1
+let timer = setInterval(() => {
+  console.log(t++);
+}, 1000);
 
-let test = {
-    age: 18,
-    sayAge: function () {
-        return function () {
-            console.log(this.age);
-        }
-    }
-}
-
-setTimeout(() => { test.sayAge() }, 0)
-
-
-///////////////////////
-
-class Test {
-    constructor(age) {
-        this.age = age;
-    }
-
-    sayAge() {
-        console.log(`hi, ${this.age}`);
-    }
-}
-
-let t = new Test(18);
-
-function Test1(age) {
-    this.age = age;
-    this.sayAge = () => {
-        console.log(this.age);
-    }
-}
-
-let t1 = new Test1(18);
-
-class Test {
-    constructor(age) {
-        this.age = age;
-    }
-
-    sayAge = () => {
-        console.log(`hi, ${this.age}`);
-    }
-}
-
-let t = new Test(18);
+setTimeout(() => {
+  clearInterval(timer)
+}, 10000);

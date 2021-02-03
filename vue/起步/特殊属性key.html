@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="ifMoble">
+            <label>手机号：</label>
+            <input type="text" key="1">
+        </div>
+        <div v-else>
+            <label>邮箱：</label>
+            <input type="text" key="2">
+        </div>
+        <button @click="sw">切换登录方式</button>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            ifMoble: true
+        },
+        methods: {
+            sw() {
+                this.ifMoble = this.ifMoble ? false : true;
+            }
+        }
+    })
+</script>
+</html>

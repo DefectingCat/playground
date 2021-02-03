@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" placeholder="Plaese input..." v-model.lazy="msg" />
+      <p>{{msg}}</p>
+
+      <hr />
+
+      <input type="text" placeholder="Plaese input..." v-model.number="age" />
+      <p>{{age}}-{{typeof age}}</p>
+
+      <hr>
+
+      <input type="text" placeholder="Plaese input..." v-model.trim="test" />
+      <p>
+        {{test}}
+      </p>
+    </div>
+  </body>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '',
+        age: '',
+        test: '',
+      },
+    });
+  </script>
+</html>

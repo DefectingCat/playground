@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    </head>
+    <body>
+        <div id="app">
+            <blog-title v-for="i in lists" :key="i.id" :title="i.title"></blog-title>
+        </div>
+    </body>
+    <script>
+        let Title = {
+            props: ['title'],
+            template: `<h2>{{title}}</h2>`
+        }
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                lists: [
+                    {id: 1, title: 'test'},
+                    {id: 2, title: 'this is a test'},
+                    {id: 3, title: 'just a test, nothing happend.'},
+                ]
+            },
+            components: {
+                'blog-title': Title
+            }
+        });
+    </script>
+</html>

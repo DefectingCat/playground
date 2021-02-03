@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <p>姓：{{firstName}}</p>
+      <p>名：{{lastName}}</p>
+      <p>姓名：{{getFullName()}}</p>
+      <p>{{count}}</p>
+      <button @click="count++">+1</button>
+    </div>
+  </body>
+  <script>
+    let vm = new Vue({
+      el: "#app",
+      data: {
+        count: 0,
+        firstName: "小",
+        lastName: "肥羊",
+      },
+      computed: {
+        fullName() {
+          console.log("computed!");
+          return this.firstName + this.lastName;
+        },
+      },
+      methods: {
+        getFullName() {
+          console.log("methods!");
+          return this.firstName + this.lastName;
+        },
+      },
+    });
+  </script>
+</html>

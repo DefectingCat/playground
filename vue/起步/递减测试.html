@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>
+        {{msg}}
+      </p>
+      <p v-show="sec">
+        {{sec}} Seconds.
+      </p>
+    </div>
+  </body>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Now you see me, But i will be overwritten.',
+        sec: 5
+      },
+      methods: {
+        over() {
+          setInterval(() => {
+            if (this.sec) {
+              this.sec--;
+            }
+            setTimeout(() => {
+              this.msg = 'Hello world!'
+            }, 4000);
+          }, 1000);
+        }
+      },
+    });
+    vm.over();
+  </script>
+</html>

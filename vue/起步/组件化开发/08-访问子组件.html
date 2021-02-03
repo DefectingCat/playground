@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <com1 ref="com1"></com1>
+      <button @click="test">Click Me!</button>
+    </div>
+  </body>
+
+  <template id="com1">
+    <div>
+      <p>子组件！</p>
+    </div>
+  </template>
+
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {
+        test() {
+          console.log(this.$refs.com1);
+          this.$refs.com1.showMsg();
+        },
+      },
+      components: {
+        com1: {
+          template: '#com1',
+          methods: {
+            showMsg() {
+              console.log('test');
+            },
+          },
+          data() {
+            return {
+              name: 'xfy',
+            };
+          },
+        },
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <com1 :clists="lists" :cmsg="msg"></com1>
+      <com2 :this-is-a-person="person"></com2>
+    </div>
+  </body>
+
+  <template id="com1">
+    <div>
+      <h2>{{cmsg}}：</h2>
+      <ul>
+        <li v-for="i in clists">{{i}}</li>
+      </ul>
+    </div>
+  </template>
+  <template id="com2">
+    <div>
+      <ul>
+        <li v-for="(p, i) in thisIsAPerson">{{i}} : {{p}}</li>
+      </ul>
+      <p>{{thisIsAPerson}}</p>
+    </div>
+  </template>
+
+  <script>
+    const com1 = {
+      template: '#com1',
+      props: {
+        clists: Array,
+        cmsg: {
+          type: String,
+          default: 'test',
+          required: true,
+        },
+      },
+    };
+
+    const com2 = {
+      template: '#com2',
+      props: {
+        thisIsAPerson: {
+          type: Object,
+          default: {},
+        },
+      },
+    };
+
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        lists: [192, 172, 36, 46, 547, 34, 9, 54, 78],
+        msg: '测试列表',
+        person: {
+          name: 'xfy',
+          age: 18,
+          favorite: 'xfy',
+        },
+      },
+      components: {
+        com1,
+        com2,
+      },
+    });
+  </script>
+</html>
