@@ -3,27 +3,31 @@ function foo(x) {
 }
 
 function throttle(fn, ms) {
+  // 初始状态为不节流
   let isThrottle = false,
     savedArgs,
     savedCont;
 
   function wrapper() {
+    // 如果节流是打开的，则保存当前运行的上下文和参数
     if (isThrottle) {
       savedArgs = arguments;
       savedCont = this;
       return;
     }
-
+    // 第一次直接运行原函数
     fn.apply(this, arguments);
+    // 第一次运行完后打开节流
     isThrottle = true;
 
     setTimeout(() => {
+      // 在节流时间后关闭节流阀
       isThrottle = false;
       if (savedArgs) {
+        // 调用 wrapper 自身，并传递保存的上下文
         wrapper.apply(savedCont, savedArgs);
         savedArgs = savedCont = null;
       }
-
     }, ms);
   }
   return wrapper;

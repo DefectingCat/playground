@@ -23,7 +23,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "js",
-		"liveServer.settings.port": 5524
+		"liveServer.settings.multiRootWorkspaceName": "html",
+		"liveServer.settings.port": 5532
 	}
 }

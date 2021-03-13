@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  html, body {
+    height: 100%;
+  }
+  .root {
+    height: 100%;
+    position: relative;
+  }
+  .content {
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    background-color: aqua;
+    border-radius: 10px;
+  }
+</style>
+<body>
+  <div class="root">
+    <div class="content"></div>
+  </div>
+</body>
+<script>
+  const div = document.querySelector('.content');
+  div.addEventListener('touchstart', (e) => {
+    console.log(e.targetTouches[0].clientX);
+    console.log(e.targetTouches[0].pageX);
+    div.style.transform = `translate(-${e.targetTouches[0].pageX}px, -${e.targetTouches[0].pageY}px)`;
+  })
+  div.addEventListener('touchmove', touchTest);
+  function touchTest(e) {
+    div.innerText = e.targetTouches[0].pageX + ' ' + e.targetTouches[0].pageY;
+    // div.style.transform = `translate(${e.targetTouches[0].pageX}%, ${e.targetTouches[0].pageY}%)`;
+    // div.style.color = 'red';
+    // div.style.transform = `translate(-${firstX}px, -${firstY}px)`;
+    div.style.left = `${e.targetTouches[0].pageX}px`;
+    div.style.top = `${e.targetTouches[0].pageY}px`;
+  }
+</script>
+</html>
