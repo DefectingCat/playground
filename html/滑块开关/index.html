@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="switch">
+      <!-- input 写在 label 上面是为了 css 兄弟选择器 -->
+      <input type="checkbox" class="toggle" id="toggle" />
+      <!-- 由于 label 的可点击性，当 input 状态改变时，利用 css 相邻兄弟选择来改变为元素 -->
+      <label for="toggle"></label>
+    </div>
+  </body>
+</html>

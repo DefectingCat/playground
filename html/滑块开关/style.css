@@ -1,0 +1,57 @@
+.toggle {
+  display: none;
+}
+
+.toggle + label {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 60px;
+  border-radius: 60px;
+  border: 1px solid #aaaaaa;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.toggle + label::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-color: #f1f1f1;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+
+.toggle + label::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.toggle:checked + label::after {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.toggle:checked + label::before {
+  background-color: #8ce196;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,43 @@
+.toggle {
+  display: none;
+  & + label {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 60px;
+    border-radius: 60px;
+    border: 1px solid #aaaaaa;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+  }
+  & + label::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: #f1f1f1;
+    transition: background 0.3s ease;
+  }
+  & + label::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 50%;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  // 利用相邻兄弟选择器，当 input 被 checked 时，改变 label 为元素的状态。
+  &:checked + label::after {
+    transform: translateX(100%);
+  }
+  &:checked + label::before {
+    background-color: #8ce196;
+  }
+}
