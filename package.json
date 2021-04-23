@@ -1,0 +1,13 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@git.defectink.com:xfy/playground.git",
+  "author": "DefectingCat <i@defect.ink>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^7.24.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}
