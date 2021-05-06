@@ -11,3 +11,18 @@ console.log(uniqueS);
 
 // let obj:object;
 // console.log(obj);
+let h = null;
+console.log(h);
+
+// let greet5 = new Function('test');
+// console.log(greet5);
+
+const obj = {
+  a: 1,
+  b: 'xfy',
+};
+function logObj(this: Date) {
+  const t = this.getDate();
+  return t;
+}
+logObj.call(new Date());
