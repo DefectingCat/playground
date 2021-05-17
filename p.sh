@@ -1,3 +1,1 @@
-git add -A
-git commit -m "test"
-git push
+git push origin && git push github && git push coding
