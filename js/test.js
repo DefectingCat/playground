@@ -1,7 +1,3 @@
-let obj = {
-  name: 'xfy',
-  age: 18
-}
-let target = {};
-
-let p = new Proxy(target, {});
+test.fn(); // 常规属性访问，常规调用
+test?.fn(); // 条件式属性访问，常规调用
+test.fn?.(); // 常规属性访问，条件式调用
