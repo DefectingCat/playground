@@ -1,4 +1,5 @@
 {
+  "include": ["ts/类型进阶"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
