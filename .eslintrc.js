@@ -1,16 +1,10 @@
 module.exports = {
-  root: true,
+  parser: '@typescript-eslint/parser', //定义ESLint的解析器
+  extends: ['prettier'], //定义文件继承的子规范
+  plugins: ['@typescript-eslint'], //定义了该eslint文件所依赖的插件
   env: {
+    //指定代码的运行环境
+    browser: true,
     node: true,
-  },
-  extends: ['eslint:recommended'],
-  parser: 'babel-eslint',
-  parserOptions: {
-    ecmaVersion: 2020,
-  },
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-unused-vars': 'on',
   },
 };

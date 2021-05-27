@@ -6,7 +6,7 @@ type Debounce = {
 };
 
 const debounce: Debounce = (fn, ms) => {
-  let timer = 0;
+  let timer: NodeJS.Timeout;
   return function (...arg) {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
