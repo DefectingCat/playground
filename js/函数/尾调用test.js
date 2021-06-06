@@ -1,6 +1,9 @@
-function testN(n) {
-  if (n === 0) return n;
-  return testN(--n);
+function fibonacci(n, a = 1, b = 1) {
+  if (n === 0) {
+    return a;
+  }
+  return fibonacci(--n, b, a + b);
 }
-
-console.log(testN(1));
+console.time('a');
+console.log('Calculate first 40 fibonacci numbers: ', fibonacci(100));
+console.timeEnd('a');
