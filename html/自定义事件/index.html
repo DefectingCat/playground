@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hi, there 👋</h1>
+    <button id="btn">Load something</button>
+    <p id="state" style="color: green">Idle.</p>
+  </body>
+  <script>
+    const btn = document.querySelector('#btn');
+    const p = document.querySelector('#state');
+
+    btn.addEventListener('click', () => {
+      document.dispatchEvent(
+        new CustomEvent('busy', {
+          detail: true,
+        })
+      );
+      setTimeout(() => {
+        document.dispatchEvent(
+          new CustomEvent('busy', {
+            detail: false,
+          })
+        );
+      }, 1000);
+    });
+
+    document.addEventListener('busy', (e) => {
+      if (e.detail) {
+        p.textContent = 'Now loading...';
+        p.style.color = 'red';
+      } else {
+        p.textContent = 'Idle.';
+        p.style.color = 'green';
+      }
+    });
+  </script>
+</html>

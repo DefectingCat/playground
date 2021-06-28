@@ -1,0 +1,43 @@
+/* variables */
+:root {
+  --text-color: #333;
+  --main-background: #fff;
+}
+
+/* media query */
+@media (prefers-color-scheme: dark) {
+  /* When prefers-color-scheme is dark mode (system level) */
+  /* Avoid overwriting user custom color mode */
+  :root:not([data-theme]) {
+    --text-color: rgb(255, 152, 0);
+    --main-background: #333;
+  }
+}
+
+/* User custom color mode is dark */
+[data-theme='dark'] {
+  --text-color: rgb(255, 152, 0);
+  --main-background: #333;
+}
+
+/* Body background color */
+html,
+body {
+  background-color: var(--main-background);
+  transition: all 0.3s ease;
+}
+
+.title {
+  color: var(--text-color);
+}
+
+.switch-mode {
+  border-radius: 8px;
+  height: 40px;
+  background-color: var(--main-background);
+  border: 1px solid rgb(199, 199, 199);
+  color: var(--text-color);
+}
+.switch-mode:active {
+  background-color: rgb(196, 196, 196);
+}

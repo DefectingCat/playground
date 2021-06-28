@@ -1,0 +1,18 @@
+// variables
+$color-mode: 'light';
+$text-color: #333;
+
+// media query
+@media (prefers-color-scheme: dark) {
+  $text-color: rgb(255, 152, 0);
+  :root {
+  }
+}
+
+.switch-mode {
+  border-radius: 10px;
+}
+
+.title {
+  color: $text-color;
+}
