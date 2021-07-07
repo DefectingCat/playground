@@ -1,3 +1,16 @@
-const data = ajax('some.url.1');
+const decorate = (oldClass) => {
+  return class NewClass extends oldClass {
+    sayName() {
+      console.log(this.name);
+    }
+  };
+};
 
-console.log(data); // 没有结果
+@decorate
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+const p = new Person('xfy');

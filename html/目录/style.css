@@ -1,0 +1,8 @@
+.main-body {
+  max-width: 800px;
+  margin: 66px auto;
+}
+.main-toc {
+  position: sticky;
+  top: 0;
+}

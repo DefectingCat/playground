@@ -1,5 +1,5 @@
 {
-  "include": ["html/DarkMode"],
+  "include": ["html/目录"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
