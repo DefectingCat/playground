@@ -44,7 +44,6 @@ const generateToc = (titles: NodeListOf<Element>) => {
           createTag(a, title, li);
           h3u.append(li);
           console.log(h3u);
-
           break;
       }
     }
