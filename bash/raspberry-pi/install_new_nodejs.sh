@@ -17,7 +17,7 @@ doInstall() {
     
     echo 'installing'
     cp -a bin/* /usr/local/bin
-    cp -a include /usr/local/include
+    cp -a include/* /usr/local/include
     cp -a lib/* /usr/local/lib
     cp -a share/* /usr/local/share
     
