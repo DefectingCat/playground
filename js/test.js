@@ -1,12 +1,12 @@
-let a = 0;
-let b = 1;
-let c = 0;
+const test = () => {
+  let a = 1;
+  return () => {
+    a++;
+    console.log(a);
+  };
+};
 
-let n = 10;
-while (n !== 0) {
-  c = a;
-  a = b;
-  b = c + b;
-  console.log(b);
-  n--;
-}
+const fn1 = test();
+const fn2 = test();
+
+console.log(fn1 === fn2);
