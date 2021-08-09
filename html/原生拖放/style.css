@@ -1,0 +1,28 @@
+.wrapper {
+  height: 500px;
+  width: 500px;
+  border-radius: 10px;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+.target {
+  height: 500px;
+  width: 500px;
+  border-radius: 10px;
+  border: 1px dashed rgb(158, 158, 158);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+#preview {
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 10px;
+}

@@ -1,39 +1,28 @@
-type Debounce = {
-  <T extends unknown[]>(fn: (...arg: T) => void | unknown, ms: number): (
-    this: unknown,
-    ...arg: T
-  ) => void | unknown;
-};
+class Person {
+  private _age = 0;
 
-const debounce: Debounce = (fn, ms) => {
-  let timer: NodeJS.Timeout;
-  return function (...arg) {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(() => {
-      fn.apply(this, arg);
-    }, ms);
-  };
-};
+  static info = 'test';
 
-function test66(msg: string) {
-  console.log(msg);
+  constructor(public name: string) {
+    this.name = name;
+    console.log(`Hello, world! My name is: ${this.name}`);
+  }
+
+  showInfo() {
+    console.log(Person.info);
+  }
+
+  get age() {
+    return this._age;
+  }
+  set age(val) {
+    this._age = val;
+  }
 }
-const test67 = debounce(test66, 100);
-test67('xfy');
-test67('xfy');
-test67('xfy');
-setTimeout(() => {
-  test67('xfy');
-}, 100);
-setTimeout(() => {
-  test67('xfy');
-}, 200);
-setTimeout(() => {
-  test67('xfy');
-}, 300);
-setTimeout(() => {
-  test67('xfy');
-}, 400);
-setTimeout(() => {
-  test67('xfy');
-}, 500);
+
+const p = new Person('xfy');
+const p2 = new Person('2p');
+
+p.age = 42;
+console.log(p.name);
+console.log(p2.showInfo());

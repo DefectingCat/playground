@@ -1,5 +1,5 @@
 {
-  "include": ["html/目录"],
+  "include": ["html/原生拖放上传"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
