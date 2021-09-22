@@ -1,12 +1,9 @@
-const test = () => {
-  let a = 1;
-  return () => {
-    a++;
-    console.log(a);
-  };
-};
+function a(xx) {
+  this.x = xx;
+  return this;
+}
 
-const fn1 = test();
-const fn2 = test();
+const x = a(5);
+const y = a(6);
 
-console.log(fn1 === fn2);
+console.log(x.x, y.x);

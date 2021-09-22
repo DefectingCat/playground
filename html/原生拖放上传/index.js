@@ -3,7 +3,8 @@ const box = document.querySelector('.target');
 const placeHolder = document.querySelector('.place-text');
 const dropText = document.querySelector('.model-text');
 const imgWrapper = document.querySelector('.show-img');
-const img = document.querySelector('.upload-img');
+/* */
+const btn = document.querySelector('.upload-btn');
 const imgWrappers = [];
 let urls = [];
 /**
@@ -19,18 +20,6 @@ const changeBoxBackgroud = (set = true) => {
     }
 };
 /**
- * 获取图片的 blob url
- * @param files
- * @returns
- */
-const getImgUrl = (files) => {
-    const urls = [];
-    for (const file of files) {
-        urls.push(window.URL.createObjectURL(file));
-    }
-    return urls;
-};
-/**
  * 展示图片时
  * 隐藏 target 子元素
  * 并设置左对齐
@@ -43,6 +32,11 @@ const changeBox = (set = true) => {
         box && box.classList.remove('change-box');
     }
 };
+/**
+ * 放下图片时
+ * 隐藏 placeholder
+ * @param set
+ */
 const changeChild = (set = true) => {
     if (set) {
         placeHolder && placeHolder.classList.add('hidden');
@@ -54,16 +48,34 @@ const changeChild = (set = true) => {
 /**
  * 克隆图片展示 div
  * 并展示待上传的图片
+ * 修改单张图片
  * @param url
  * @param set
  */
-const showUploadImg = (url, set = true) => {
+const showUploadImg = (url, name, set = true) => {
     if (set) {
+        // 克隆准备好的图片展示 DOM
         const child = imgWrapper?.cloneNode(true);
         if (child && box) {
+            const img = child.querySelector('.upload-img');
+            const text = child.querySelector('.img-name span');
+            img && (img.src = url);
+            text && (text.textContent = name);
             child.classList.remove('hidden');
             box.append(child);
         }
+    }
+};
+/**
+ * 根据文件列表创建图片
+ * @param files
+ */
+const applyImg = (files) => {
+    for (const file of files) {
+        // 创建 blob url
+        const url = window.URL.createObjectURL(file);
+        urls.push(url);
+        showUploadImg(url, file.name);
     }
 };
 const handleDarg = (e) => {
@@ -81,11 +93,10 @@ const handleDarg = (e) => {
             e.preventDefault();
             changeBoxBackgroud(false);
             const files = e.dataTransfer?.files;
-            if (files)
-                urls = urls.concat(getImgUrl(files));
             changeBox();
             changeChild();
-            showUploadImg();
+            if (files)
+                applyImg(files);
             break;
         case 'dragleave':
             e.preventDefault();
@@ -97,3 +108,19 @@ box?.addEventListener('dragenter', handleDarg);
 box?.addEventListener('dragover', handleDarg);
 box?.addEventListener('drop', handleDarg);
 box?.addEventListener('dragleave', handleDarg);
+box?.addEventListener('paste', (e) => {
+    const files = e.clipboardData?.files;
+    changeBox();
+    changeChild();
+    if (files)
+        applyImg(files);
+});
+const handChange = (e) => {
+    const files = e.target.files;
+    changeBox();
+    changeChild();
+    if (files)
+        applyImg(files);
+};
+btn?.addEventListener('change', handChange);
+/* ----------- */
